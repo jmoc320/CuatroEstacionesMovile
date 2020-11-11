@@ -16,7 +16,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button AbsoluteLayout.LayoutBounds="0.95,0.95,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" Text="{x:Static fontawesome:FontAwesomeIcons.Accusoft}" FontFamily="{StaticResource FontAwesomeBrands}" CornerRadius="40" HeightRequest="80" WidthRequest="80" />
+            <Button AbsoluteLayout.LayoutBounds="0.95,0.95,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" Text="{x:Static fontawesome:FontAwesomeIcons.UserPlus}" FontFamily="{StaticResource FontAwesomeSolid}" BackgroundColor="{StaticResource AccentColor}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
         </AbsoluteLayout>
     </ContentPage.Content>
 </views:MvxContentPage>

@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.cfg" />
-    <AndroidAsset Include="Assets\FontAwesomeSolid.otf" />
+    <AndroidAsset Include="Assets\FontAwesome5Solid.otf" />
     <AndroidAsset Include="Assets\FontAwesome5Brands.otf" />
     <AndroidAsset Include="Assets\FontAwesome5Regular.otf" />
     <None Include="Properties\AndroidManifest.xml" />
