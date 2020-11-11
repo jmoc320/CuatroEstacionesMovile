@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CuatroEstaciones.UI.Pages.ClientesPage" xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" xmlns:viewModels="clr-namespace:CuatroEstaciones.Core.ViewModels;assembly=CuatroEstaciones.Core" xmlns:fontawesome="clr-namespace:CuatroEstaciones.Core.Misc;assembly=CuatroEstaciones.Core" x:TypeArguments="viewModels:ClientesViewModel">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ListView x:Name="listaClientes" ItemsSource="{Binding Path=ListaClientes, Mode=TwoWay}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <Label Text="{Binding Path=Nombre, Mode=OneWay}" />
+                                    <Label Text="{Binding Path=Apellidos, Mode=OneWay}" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button AbsoluteLayout.LayoutBounds="0.95,0.95,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" Text="{x:Static fontawesome:FontAwesomeIcons.Accusoft}" FontFamily="{StaticResource FontAwesomeBrands}" CornerRadius="40" HeightRequest="80" WidthRequest="80" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>
