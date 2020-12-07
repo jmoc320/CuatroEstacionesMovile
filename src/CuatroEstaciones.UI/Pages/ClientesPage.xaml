@@ -2,21 +2,26 @@
 <views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CuatroEstaciones.UI.Pages.ClientesPage" xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" xmlns:viewModels="clr-namespace:CuatroEstaciones.Core.ViewModels;assembly=CuatroEstaciones.Core" xmlns:fontawesome="clr-namespace:CuatroEstaciones.Core.Misc;assembly=CuatroEstaciones.Core" x:TypeArguments="viewModels:ClientesViewModel">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <ListView x:Name="listaClientes" ItemsSource="{Binding Path=ListaClientes, Mode=TwoWay}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
+            <ListView x:Name="listaClientes" ItemsSource="{Binding Path=ListaClientes, Mode=TwoWay}" SelectedItem="{Binding Path=ClienteSeleccionado, Mode=TwoWay}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout Orientation="Horizontal" Spacing="0">
-                                    <Label Text="{Binding Path=Nombre, Mode=OneWay}" />
-                                    <Label Text="{Binding Path=Apellidos, Mode=OneWay}" />
-                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <Label Text="{Binding Path=NombreCompleto, Mode=OneWay}" Margin="5,5,5,0" />
+                                    <Label Text="{Binding Path=Telefono, Mode=OneWay}" Margin="5,0,5,5" />
+                                </StackLayout>                                
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button AbsoluteLayout.LayoutBounds="0.95,0.95,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" Text="{x:Static fontawesome:FontAwesomeIcons.UserPlus}" FontFamily="{StaticResource FontAwesomeSolid}" BackgroundColor="{StaticResource AccentColor}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
+            <StackLayout AbsoluteLayout.LayoutBounds="0.95,0.95,60,180" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Button Command="{Binding Path=CrearClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Plus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
+                <Button Command="{Binding Path=EditarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Plus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
+                <Button Command="{Binding Path=EliminarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Minus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" BackgroundColor="Red"/>
+            </StackLayout>
+            
         </AbsoluteLayout>
     </ContentPage.Content>
 </views:MvxContentPage>

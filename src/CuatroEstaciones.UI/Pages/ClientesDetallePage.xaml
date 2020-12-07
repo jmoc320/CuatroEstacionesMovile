@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CuatroEstaciones.UI.Pages.ClientesDetallePage" xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" xmlns:viewModels="clr-namespace:CuatroEstaciones.Core.ViewModels;assembly=CuatroEstaciones.Core" xmlns:fontawesome="clr-namespace:CuatroEstaciones.Core.Misc;assembly=CuatroEstaciones.Core" x:TypeArguments="viewModels:ClientesDetalleViewModel">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Margin="10">
+            
+                <Label Text="Nombre"/>
+                <Entry Text="{Binding Path=ClienteSeleccionado.Nombre, Mode=TwoWay}"/>
+                <Label Text="Apellidos" Grid.Row="1" Grid.Column="0" />
+                <Entry Text="{Binding Path=ClienteSeleccionado.Apellidos, Mode=TwoWay}" />
+                <Label Text="Telefono"  />
+                <Entry Text="{Binding Path=ClienteSeleccionado.Telefono, Mode=TwoWay}" />
+            </StackLayout>
+            <Button Command="{Binding Path=GuardarCambiosCommand }" AbsoluteLayout.LayoutBounds="0.95,0.95,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" Text="{x:Static fontawesome:FontAwesomeIcons.UserPlus}" FontFamily="{StaticResource FontAwesomeSolid}" BackgroundColor="{StaticResource AccentColor}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>
