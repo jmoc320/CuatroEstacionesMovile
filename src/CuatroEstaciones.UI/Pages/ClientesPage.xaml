@@ -17,11 +17,10 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout AbsoluteLayout.LayoutBounds="0.95,0.95,60,180" AbsoluteLayout.LayoutFlags="PositionProportional">
-                <Button Command="{Binding Path=CrearClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Plus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
-                <Button Command="{Binding Path=EditarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Plus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" />
-                <Button Command="{Binding Path=EliminarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.Minus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" BackgroundColor="Red"/>
-            </StackLayout>
-            
+                <Button Command="{Binding Path=CrearClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.UserPlus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" BackgroundColor="#77CA5A"/>
+                <Button Command="{Binding Path=EditarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.UserEdit}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" BackgroundColor="#F7B351"/>
+                <Button Command="{Binding Path=EliminarClienteCommand }" Text="{x:Static fontawesome:FontAwesomeIcons.UserMinus}" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="20" CornerRadius="30" HeightRequest="60" WidthRequest="60" BackgroundColor="#F77351" />
+            </StackLayout>            
         </AbsoluteLayout>
     </ContentPage.Content>
 </views:MvxContentPage>

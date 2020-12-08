@@ -66,18 +66,18 @@ namespace CuatroEstaciones.Core.Services.EF {
                             db.SaveChanges();
                         }
 
-                        _messenger.Publish(new NotificationMessage(this, "RegistroActualizado"));
+                        _messenger.Publish(new NotificationMessage(this, "Actualizar registro", "Registro actualizado correctamente"));
                     }
                     catch (Exception e) {
-                        _messenger.Publish(new NotificationMessage(this, "Error: " + e.Message));
+                        _messenger.Publish(new NotificationMessage(this, "Error", e.Message));
                     }
                 }
                 else {
-                    _messenger.Publish(new NotificationMessage(this, "Error: " + results.ToString()));
+                    _messenger.Publish(new NotificationMessage(this, "Error", results.ToString()));
                 }
             }
             else {
-                _messenger.Publish(new NotificationMessage(this, "Error: Ningún objeto seleccionado"));
+                _messenger.Publish(new NotificationMessage(this, "Error", "Ningun objeto seleccionado"));
             }
         }
 
@@ -91,7 +91,7 @@ namespace CuatroEstaciones.Core.Services.EF {
                         // Si el objeto está en bd, lo elimino. Si no, no hago nada
                         if (modelInBD != null) {
                             db.Remove(modelInBD);
-                            _messenger.Publish(new NotificationMessage(this, "RegistroEliminado"));
+                            _messenger.Publish(new NotificationMessage(this, "Eliminar registro", "Registro eliminado correctamente"));
                         }
 
                         // Guardo cambios en BD
@@ -99,11 +99,11 @@ namespace CuatroEstaciones.Core.Services.EF {
                     }
                 }
                 catch (Exception e) {
-                    _messenger.Publish(new NotificationMessage(this, "Error: " + e.Message));
+                    _messenger.Publish(new NotificationMessage(this, "Error", e.Message));
                 }
             }
             else {
-                _messenger.Publish(new NotificationMessage(this, "Error: Ningún objeto seleccionado"));
+                _messenger.Publish(new NotificationMessage(this, "Error", "Ningun objeto seleccionado"));
             }
         }
 
@@ -113,7 +113,7 @@ namespace CuatroEstaciones.Core.Services.EF {
         /// <typeparam name="TModel"></typeparam>
         /// <param name="modelInLocal"></param>
         public void Cancel<TModel>(TModel modelInLocal) where TModel : BaseModel, new() {
-            UndoOrCancel(modelInLocal, "RegistroCancelado");
+            UndoOrCancel(modelInLocal, "Cancelar registro", "Registro cancelado de forma correcta");
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace CuatroEstaciones.Core.Services.EF {
         /// <typeparam name="TModel"></typeparam>
         /// <param name="modelInLocal"></param>
         public void Undo<TModel>(TModel modelInLocal) where TModel : BaseModel, new() {
-            UndoOrCancel(modelInLocal, "RegistroRecuperado");
+            UndoOrCancel(modelInLocal, "Recuperar registro", "Registro recuperado de forma correcta");
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace CuatroEstaciones.Core.Services.EF {
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <param name="modelInLocal"></param>
-        private void UndoOrCancel<TModel>(TModel modelInLocal, string mensaje) where TModel : BaseModel, new() {
+        private void UndoOrCancel<TModel>(TModel modelInLocal, string titulo, string mensaje) where TModel : BaseModel, new() {
             if (modelInLocal != null) {
                 // Invoco al metodo de borrado en funcion del tipo recibido
                 var tipoModelInLocal = modelInLocal.GetType();
@@ -146,14 +146,14 @@ namespace CuatroEstaciones.Core.Services.EF {
                         Util.CopyProperties(modelInBD, modelInLocal);
                     }
 
-                    _messenger.Publish(new NotificationMessage(this, mensaje));
+                    _messenger.Publish(new NotificationMessage(this, titulo, mensaje));
                 }
                 catch (Exception e) {
-                    _messenger.Publish(new NotificationMessage(this, "Error: " + e.Message));
+                    _messenger.Publish(new NotificationMessage(this, "Error", e.Message));
                 }
             }
             else {
-                _messenger.Publish(new NotificationMessage(this, "Error: Ningún objeto seleccionado"));
+                _messenger.Publish(new NotificationMessage(this, "Error", "Ningun objeto seleccionado"));
             }
         }
     }

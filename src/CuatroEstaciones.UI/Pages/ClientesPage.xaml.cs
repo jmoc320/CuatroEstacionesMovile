@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 namespace CuatroEstaciones.UI.Pages {
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxMasterDetailPagePresentation(Position = MasterDetailPosition.Detail, NoHistory = true, Title = "Clientes Page")]
+    [MvxMasterDetailPagePresentation(Position = MasterDetailPosition.Detail, NoHistory = true, Title = "Clientes")]
     public partial class ClientesPage : MvxContentPage<ClientesViewModel> {
 
         public ClientesPage() {
